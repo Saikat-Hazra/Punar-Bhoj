@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="Assets/Logo.svg" type="image/x-icon">
+</head>
+<body>
+
+  <!--Navbar-->
+  <div style="width: 100% !important; height: auto; display: flex; justify-content: space-between; align-items: center; 
+      padding: 10px 20px; box-sizing: border-box; background-color: var(--primary-bg); 
+        border-bottom: 2.5px solid var(--border-color); position: sticky; top: 0; z-index: 5;">
+    <div class="logo" style="display: flex; justify-content: space-between; align-items: center;">  
+      <a href="index.html"><img src="Assets/Logo.svg" alt="Punar Bhoj Logo" class="logo-image" width="100px" height="100px"></a>
+      <h2 style="color: var(--primary-text);">Punar Bhoj</h2>
+    </div>
+    <div class="nav-links">
+      <button class="theme-toogle" id="theme-toggle">
+          <img src="Assets/day-and-night.svg" alt="" height="25px" width="25px">
+      </button>
+    </div>
+  </div>
+
+
+    <!-- Reservation Form -->
+    <div id="res-form">
+    <form class="reservation-form" action="index.html" method="get">
+    <h2>Reserve a Table</h2>
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tableType">Table Type</label>
+      <select id="tableType" name="tableType" required>
+        <option value="">-- Select Table Type --</option>
+        <option value="square">Square Table (2*2)=4 total</option>
+        <option value="rectangular">Rectangular Table (2*3)=6 total</option>
+        <option value="circular">Circular Table (6 to 8 total)</option>
+      </select>
+    </div>
+
+    
+      <button class="form-button" type="submit" id="submit-form">Book Now</button>
+      <button class="form-button" type="reset">Reset Booking</button>
+      <!-- <a href="index.html"><button class="form-button" id="back-button">Back to HOME</button></a> -->
+      <a href="index.html" style="text-decoration: none; align-items: center; text-align: center; align-self: center; justify-self: center;">
+        <div class="form-button" id="back-button">Back to HOME</div>
+      </a>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+<script>
+
+  document.getElementById('reservation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (this.checkValidity()) {
+    window.location.href = 'index.html';
+  } else {
+    this.reportValidity();
+  }
+});
+
+</script>
+</body>
+</html>
